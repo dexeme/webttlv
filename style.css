@@ -1,0 +1,212 @@
+/* Centraliza o conteúdo na tela */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinhamento no topo da tela para crescimento para baixo */
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow-y: auto; /* Permite rolagem na página */
+}
+
+/* Estiliza o container principal */
+#container {
+    width: 80%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estiliza o título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Seção de input e botão */
+#input-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estiliza o textarea */
+#hex_input {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Estiliza o botão */
+#convert {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Seção de output */
+#output-section {
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+/* Estiliza o texto de output */
+#output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* Seção para salvar e listar entradas */
+#save-section {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#save-entry {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estiliza a lista de entradas */
+#entries-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+}
+
+#entries-list li {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+#entries-list li input {
+    border: none;
+    font-size: 14px;
+    width: 100%;
+}
+
+#entries-list li input:focus {
+    outline: none;
+    border-bottom: 1px solid #007bff;
+}
+
+/* Estilo do botão de deletar */
+.delete-button {
+    background-color: #e63946;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.delete-button:hover {
+    background-color: rgba(255, 74, 74, 0.44);
+}
+
+/* Estilo do botão de deletar */
+.delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+}
+
+.trash-icon {
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo do botão de copiar */
+.copy-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin-right: 8px; /* Adiciona espaço entre o botão de copiar e a lixeira */
+}
+
+.copy-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Estilo do botão de deletar */
+.delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+}
+
+.copy-button:hover {
+    background-color: rgba(175, 149, 149, 0.44);
+}
+
+.trash-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Estilo do botão de executar (play) */
+.play-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin-right: 8px; /* Espaço entre o botão de executar e o botão de copiar */
+}
+
+.play-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.play-icon:hover {
+    background-color: rgba(198, 248, 200, 0.44);
+}

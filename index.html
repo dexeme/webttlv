@@ -4,32 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TTLV Converter</title>
-    <script type="module">
-        import init, { convert_hex_to_ttlv } from "./pkg/wasm_converter.js";
-
-        async function run() {
-            // Inicializa o Wasm
-            await init();
-
-            // Configura o botão para executar a conversão
-            document.getElementById("convert").onclick = () => {
-                const hexInput = document.getElementById("hex_input").value;
-                try {
-                    const result = convert_hex_to_ttlv(hexInput);
-                    document.getElementById("output").innerText = result;
-                } catch (error) {
-                    document.getElementById("output").innerText = `Erro: ${error}`;
-                }
-            };
-        }
-
-        run();
-    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module" defer></script>
 </head>
 <body>
-<h1>TTLV Converter</h1>
-<textarea id="hex_input" placeholder="Insira a string hexadecimal"></textarea>
-<button id="convert">Converter</button>
-<pre id="output"></pre>
+<div id="container">
+    <h1>TTLV Converter</h1>
+
+    <!-- Seção para salvar e listar entradas -->
+    <div id="save-section">
+        <button id="save-entry">Salvar Entrada</button>
+        <ul id="entries-list"></ul>
+    </div>
+
+    <!-- Input Section -->
+    <div id="input-section">
+        <textarea id="hex_input" placeholder="Insira a string hexadecimal"></textarea>
+        <button id="convert">Converter</button>
+    </div>
+
+    <!-- Output Section -->
+    <div id="output-section">
+        <pre id="output"></pre>
+    </div>
+</div>
 </body>
 </html>
