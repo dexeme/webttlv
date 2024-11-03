@@ -6,6 +6,7 @@
     <title>TTLV Converter</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" type="module" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 <body>
 <div id="container">
@@ -22,7 +23,9 @@
         <textarea id="hex_input" placeholder="Insira a string hexadecimal"></textarea>
         <button id="convert">Converter</button>
     </div>
-
+    <div>
+    <button id="exportSvg">Exportar como SVG</button>
+    </div>
     <!-- Output Section -->
     <div id="output-section">
         <pre id="output"></pre>
