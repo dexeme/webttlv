@@ -9,24 +9,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 <body>
-<div id="container">
-    <h1>TTLV Converter</h1>
+<div id="main-container">
+    <div id="container">
+        <h1><span class="title-green">T</span><span class="title-blue">T</span><span class="title-black">L</span><span class="title-red">V</span> Converter</h1>
 
-    <!-- Seção para salvar e listar entradas -->
-    <div id="save-section">
-        <button id="save-entry">Salvar Entrada</button>
+        <div id="input-section">
+            <textarea id="hex_input" placeholder="Insira a String hexadecimal"></textarea>
+            <div class="button-container">
+                <button id="convert">Converter</button>
+                <button id="save-entry">Salvar Entrada</button>
+                <button id="exportSvg">Exportar como SVG</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="entries-section">
+        <h2>Entradas Salvas</h2>
         <ul id="entries-list"></ul>
     </div>
+</div>
 
-    <!-- Input Section -->
-    <div id="input-section">
-        <textarea id="hex_input" placeholder="Insira a string hexadecimal"></textarea>
-        <button id="convert">Converter</button>
-    </div>
-    <div>
-    <button id="exportSvg">Exportar como SVG</button>
-    </div>
-    <!-- Output Section -->
+<!-- Output separado abaixo do main-container -->
+<div id="output-container">
     <div id="output-section">
         <pre id="output"></pre>
     </div>

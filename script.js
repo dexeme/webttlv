@@ -571,4 +571,6 @@ async function run() {
     }
 }
 
-run();
+document.addEventListener("DOMContentLoaded", () => {
+    run();
+});

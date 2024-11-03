@@ -1,268 +1,209 @@
-/* Centraliza o conteúdo na tela */
+/* Corpo e Container */
 body {
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinhamento no topo da tela para crescimento para baixo */
-    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    overflow-y: auto; /* Permite rolagem na página */
 }
 
-/* Estiliza o container principal */
-#container {
+#main-container {
+    display: flex;
+    max-width: 1200px;
     width: 100%;
-    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+#container {
+    flex: 2;
     background: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
 }
 
-/* Estiliza o título */
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 36px;
 }
 
-/* Seção de input e botão */
+.title-green { color: darkgreen; }
+.title-blue { color: darkblue; }
+.title-black { color: black; }
+.title-red { color: red; }
+
 #input-section {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-/* Estiliza o textarea */
 #hex_input {
     width: 100%;
-    height: 150px;
+    height: 198px;
     resize: none;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-bottom: 50px; /* Aumenta o espaço entre o input e os botões */
     box-sizing: border-box;
 }
 
-/* Estiliza o botão */
-#convert {
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+#convert, #save-entry, #exportSvg {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-/* Seção de output */
-#output-section {
-    padding: 10px;
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 20px;
-}
-
-/* Estiliza o texto de output */
-#output {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    font-family: monospace;
-    font-size: 12px;
-}
-
-/* Seção para salvar e listar entradas */
-#save-section {
-    margin-bottom: 15px;
-    text-align: center;
+#convert {
+    background-color: #4CAF50;
 }
 
 #save-entry {
-    padding: 8px 15px;
-    font-size: 14px;
     background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
-/* Estiliza a lista de entradas */
+#exportSvg {
+    background-color: #4CAF50;
+}
+
+#convert:hover { background-color: #45a049; }
+#save-entry:hover { background-color: #0069d9; }
+#exportSvg:hover { background-color: #3e8e41; }
+
+#entries-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#entries-section h2 {
+    text-align: center;
+}
+
 #entries-list {
+    width: 100%;
     list-style-type: none;
     padding: 0;
     margin: 10px 0;
     text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 #entries-list li {
-    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
+    margin-bottom: 8px;
 }
 
-#entries-list li input {
+.play-button, .copy-button, .delete-button {
+    background-color: transparent;
     border: none;
-    font-size: 14px;
-    width: 100%;
-}
-
-#entries-list li input:focus {
-    outline: none;
-    border-bottom: 1px solid #007bff;
-}
-
-/* Estilo do botão de deletar */
-.delete-button {
-    background-color: #e63946;
-    border: none;
-    color: white;
-    border-radius: 4px;
-    padding: 5px;
     cursor: pointer;
-    font-size: 16px;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
 }
 
-.delete-button:hover {
-    background-color: rgba(255, 74, 74, 0.44);
-}
+.play-button:hover { background-color: rgba(198, 248, 200, 0.44); }
+.copy-button:hover { background-color: rgba(175, 149, 149, 0.44); }
+.delete-button:hover { background-color: rgba(255, 74, 74, 0.44); }
 
-/* Estilo do botão de deletar */
-.delete-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-}
-
-.trash-icon {
-    width: 100%;
-    height: 100%;
-}
-
-/* Estilo do botão de copiar */
-.copy-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    margin-right: 8px; /* Adiciona espaço entre o botão de copiar e a lixeira */
-}
-
-.copy-icon {
-    width: 100%;
-    height: 100%;
+.play-icon, .copy-icon, .trash-icon {
+    width: 80%;
+    height: 80%;
     object-fit: contain;
 }
 
-/* Estilo do botão de deletar */
-.delete-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    padding: 0;
+#output-container {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.copy-button:hover {
-    background-color: rgba(175, 149, 149, 0.44);
+#output-section {
+    width: 70%;
+    max-width: 1200px;
+    background-color: #f7f7f7;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
-.trash-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Estilo do botão de executar (play) */
-.play-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    margin-right: 8px; /* Espaço entre o botão de executar e o botão de copiar */
-}
-
-.play-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.play-icon:hover {
-    background-color: rgba(198, 248, 200, 0.44);
-}
-
-/* Contêiner principal */
-#line-container {
+#output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
     font-family: monospace;
-}
-
-/* Estilo para cada linha com hierarquia */
-.line-container {
-    padding: 4px 0;
     font-size: 14px;
-    white-space: pre;
-    position: relative;
 }
 
-/* Estilo específico para o conteúdo após "Value:" */
 .highlight-content {
     color: red;
     font-weight: bold;
 }
 
-/* Estilo para a Tag (6 caracteres antes de ", Type:") */
 .highlight-tag {
     color: darkgreen;
     font-weight: bold;
 }
 
-/* Estilo para o Type (inclui todos os tipos possíveis) */
 .highlight-type {
     color: darkblue;
     font-weight: bold;
 }
 
-/* Estilo para o hover: exibe o valor da tag */
+.line-container {
+    position: relative;
+    padding: 4px 0;
+    transition: background-color 0.3s ease;
+}
+
+.line-container:hover {
+    background-color: rgba(200, 200, 200, 0.3); /* Destaca a linha com uma cor de fundo clara */
+}
+
 .line-container:hover::after {
     content: attr(data-tag);
     position: absolute;
-    left: 100%;
-    margin-left: 10px;
-    padding: 4px 8px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    z-index: 10;
-}
-
-/* Supondo que você tenha elementos com hover */
-.hover-active .line-container:hover::after {
-    content: attr(data-tag);
-    position: absolute;
-    left: 100%;
-    margin-left: 10px;
+    left: 90%;
+    margin-left: 5px;
     padding: 4px 8px;
     background-color: #333;
     color: #fff;
@@ -271,35 +212,4 @@ h1 {
     white-space: nowrap;
     z-index: 10;
     border: 1px solid #ddd;
-}
-
-/* Estilos adicionais de hover, se necessário */
-.hover-active .highlight-content {
-    color: red;
-    font-weight: bold;
-}
-
-
-#exportSvg {
-    background-color: #4CAF50; /* Verde */
-    color: white; /* Texto branco */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho da fonte */
-    border: none; /* Sem borda */
-    border-radius: 5px; /* Borda arredondada */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
-}
-
-/* Estilo ao passar o mouse */
-#exportSvg:hover {
-    background-color: #45a049; /* Verde mais escuro */
-    transform: translateY(-2px); /* Efeito de elevação */
-}
-
-/* Estilo ao clicar */
-#exportSvg:active {
-    background-color: #3e8e41; /* Verde ainda mais escuro */
-    transform: translateY(0px); /* Retorna ao nível original */
 }
